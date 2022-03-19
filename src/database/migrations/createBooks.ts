@@ -22,6 +22,7 @@ export class createBooks1647700260488 implements MigrationInterface {
           {
             name: "description",
             type: "varchar",
+            isNullable: false,
           },
           {
             name: "author",

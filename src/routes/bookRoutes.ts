@@ -30,7 +30,24 @@ booksRouter.get("/", async (request, response) => {
 });
 
 // - Como usuário gostaria de ver todos os detalhes de um livro específico;
-booksRouter.get("/book", async (_request, response) => {});
+// * Retorna os detalhes do livro pelo sbn ou o livro com o nome mais próximo da pesquisa.
+booksRouter.get("/getBookDetails", async (request, response) => {
+  try {
+    const { sbn, name } = request.query;
+
+    const bookDetails = await new BookDetailsService().execute(
+      `${sbn}`,
+      `${name}`
+    );
+
+    return response.json(bookDetails);
+  } catch (error) {
+    return response
+      .status(500)
+      .json("There was an error while trying to retrive book details");
+  }
+});
+
 // - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
 // Create Book Route
 // - Como usuário gostaria adicionar livros no meu microseviço; Os livros devem conter: SBN, Nome, Breve Descrição e Autor e Estoque;
