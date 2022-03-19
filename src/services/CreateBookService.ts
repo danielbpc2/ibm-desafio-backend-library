@@ -7,7 +7,9 @@ export class CreateBookService {
    */
   public async execute(book: Books): Promise<Books> {
     const createdBook = BooksRepository.create(book);
+
     await BooksRepository.save(createdBook);
+
     return createdBook;
   }
 }

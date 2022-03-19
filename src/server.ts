@@ -10,4 +10,5 @@ app.listen(3333, () => {
 });
 
 app.use(routes);
+
 dataSource.initialize();
