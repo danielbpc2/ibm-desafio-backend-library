@@ -3,6 +3,7 @@ import Books from "../models/Books";
 import { CreateBookService } from "../services/books/CreateBookService";
 import { ListBookService } from "../services/books/ListBooksService";
 import { BookDetailsService } from "../services/books/BookDetailsService";
+import { DeleteBookService } from "../services/books/DeleteBookService";
 
 const booksRouter = Router();
 
@@ -48,7 +49,7 @@ booksRouter.get("/getBookDetails", async (request, response) => {
   }
 });
 
-// - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
+// TODO: - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
 // Create Book Route
 // - Como usuário gostaria adicionar livros no meu microseviço; Os livros devem conter: SBN, Nome, Breve Descrição e Autor e Estoque;
 booksRouter.post("/", async (request, response) => {
@@ -65,6 +66,20 @@ booksRouter.post("/", async (request, response) => {
     return response.status(400).json("There was an error with your request");
   }
 });
-// - Como usuário gostaria de excluir um livro;
 
+//  - Como usuário gostaria de excluir um livro;
+booksRouter.delete("/", async (request, response) => {
+  try {
+    const { sbn } = request.query;
+
+    const deletedBook = await new DeleteBookService().execute(`${sbn}`);
+
+    return response.json({
+      book: deletedBook,
+      deleted: deletedBook ? true : false,
+    });
+  } catch (error) {
+    return response.json("There was an error while trying to delete a book");
+  }
+});
 export default booksRouter;

@@ -3,7 +3,9 @@ import { BooksRepository } from "../../repositories/BooksRepository";
 
 export class CreateBookService {
   /**
-   * execute the criation of a Book
+   * if executed creates a book.
+   * @param book receives a book without sbn
+   * @returns created book
    */
   public async execute(book: Omit<Books, "sbn">): Promise<Books> {
     const createdBook = BooksRepository.create(book);

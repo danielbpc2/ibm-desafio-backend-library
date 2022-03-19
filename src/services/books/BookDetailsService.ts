@@ -4,7 +4,10 @@ import { BooksRepository } from "../../repositories/BooksRepository";
 
 export class BookDetailsService {
   /**
-   * execute the listing of a Book details
+   * if executed finds a book by its sbn or name.
+   * @param sbn string idenfier of a book
+   * @param name name of the book
+   * @returns found book.
    */
   public async execute(sbn?: string, name?: string): Promise<Books | null> {
     const book = BooksRepository.findOne({

@@ -4,7 +4,9 @@ import { BooksRepository } from "../../repositories/BooksRepository";
 
 export class ListBookService {
   /**
-   * execute the listing of all books paginated.
+   * if execited returns a list of the books with stock above 0 and the last page number
+   * @param page number of the page to be returned
+   * @returns [the list of the books, last page number]
    */
   public async execute(page: number): Promise<[Books[], number]> {
     const take = 2;
