@@ -5,6 +5,7 @@
   "author": "Daniel Carvalho <danielbpc2@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.2",
     "dot-env": "^0.0.1",
     "express": "^4.17.3",
     "pg": "^8.7.3",
