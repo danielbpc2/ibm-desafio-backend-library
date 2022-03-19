@@ -7,7 +7,10 @@ import { DeleteBookService } from "../services/books/DeleteBookService";
 
 const booksRouter = Router();
 
-// - Como usuário gostaria de ver a listagem (apenas os nomes) de livros que eu tenho em estoque de forma paginada;
+/**
+ * Requisito:
+ * ! Como usuário gostaria de ver a listagem (apenas os nomes) de livros que eu tenho em estoque de forma paginada;
+ */
 booksRouter.get("/", async (request, response) => {
   try {
     let { page } = request.query;
@@ -30,8 +33,11 @@ booksRouter.get("/", async (request, response) => {
   }
 });
 
-// - Como usuário gostaria de ver todos os detalhes de um livro específico;
-// * Retorna os detalhes do livro pelo sbn ou o livro com o nome mais próximo da pesquisa.
+/**
+ * Requisito:
+ * ! Como usuário gostaria de ver todos os detalhes de um livro específico;
+ * * Retorna os detalhes do livro pelo sbn ou o livro com o nome mais próximo da pesquisa.
+ */
 booksRouter.get("/getBookDetails", async (request, response) => {
   try {
     const { sbn, name } = request.query;
@@ -50,24 +56,34 @@ booksRouter.get("/getBookDetails", async (request, response) => {
 });
 
 // TODO: - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
-// Create Book Route
-// - Como usuário gostaria adicionar livros no meu microseviço; Os livros devem conter: SBN, Nome, Breve Descrição e Autor e Estoque;
+
+/**
+ * Requisito:
+ * ! Como usuário gostaria adicionar livros no meu microseviço; Os livros devem conter: SBN, Nome, Breve Descrição e Autor e Estoque;
+ * * Ao enviar os dados do livro cria um novo livro
+ */
 booksRouter.post("/", async (request, response) => {
   try {
-    const { name, author, description, stock }: Books = request.body;
+    const { sbn, name, author, description, stock }: Books = request.body;
+
     const book = await new CreateBookService().execute({
+      sbn,
       name,
       author,
       description,
       stock,
     });
+
     return response.json(book);
   } catch (error) {
-    return response.status(400).json("There was an error with your request");
+    return response.status(400).json(error?.message);
   }
 });
 
-//  - Como usuário gostaria de excluir um livro;
+/**
+ * Requisito;
+ * * Como usuário gostaria de excluir um livro;
+ */
 booksRouter.delete("/", async (request, response) => {
   try {
     const { sbn } = request.query;

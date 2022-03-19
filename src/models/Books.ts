@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn } from "typeorm";
 
 @Entity("books")
 class Books {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryColumn()
   sbn: string;
   @Column()
   name: string;

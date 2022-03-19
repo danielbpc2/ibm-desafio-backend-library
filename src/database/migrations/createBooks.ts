@@ -9,10 +9,11 @@ export class createBooks1647700260488 implements MigrationInterface {
         columns: [
           {
             name: "sbn",
-            type: "uuid",
+            type: "varchar",
             isPrimary: true,
-            generationStrategy: "uuid",
-            default: "uuid_generate_v4()",
+            isNullable: false,
+            isUnique: true,
+            length: "13",
           },
           {
             name: "name",
