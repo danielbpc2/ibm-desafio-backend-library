@@ -5,6 +5,7 @@
   "author": "Daniel Carvalho <danielbpc2@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dot-env": "^0.0.1",
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "typeorm": "^0.3.0"
@@ -16,6 +17,7 @@
   },
   "scripts": {
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   }
 }
