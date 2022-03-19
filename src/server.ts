@@ -9,6 +9,7 @@ const app = express();
 app.listen(3333, () => {
   console.log("Backend connected");
 });
+
 app.use(bodyParser.json());
 
 app.use(routes);
