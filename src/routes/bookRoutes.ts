@@ -1,19 +1,43 @@
 import { Router } from "express";
 import Books from "../models/Books";
-import { CreateBookService } from "../services/createBookService";
+import { CreateBookService } from "../services/books/CreateBookService";
+import { ListBookService } from "../services/books/ListBooksService";
+import { BookDetailsService } from "../services/books/BookDetailsService";
 
 const booksRouter = Router();
 
-booksRouter.get("/", (_request, response) => {
-  return response.json({ success: "oh books" });
+// - Como usuário gostaria de ver a listagem (apenas os nomes) de livros que eu tenho em estoque de forma paginada;
+booksRouter.get("/", async (request, response) => {
+  try {
+    let { page } = request.query;
+
+    const parsedPage = parseInt(`${page}`, 10);
+
+    const [bookList, maxPages] = await new ListBookService().execute(
+      parsedPage
+    );
+
+    return response.json({
+      books: bookList,
+      page: parsedPage ? parsedPage : 1,
+      maxPages,
+    });
+  } catch (error) {
+    return response
+      .status(500)
+      .json("There was an error while trying to retrive book list");
+  }
 });
 
+// - Como usuário gostaria de ver todos os detalhes de um livro específico;
+booksRouter.get("/book", async (_request, response) => {});
+// - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
 // Create Book Route
+// - Como usuário gostaria adicionar livros no meu microseviço; Os livros devem conter: SBN, Nome, Breve Descrição e Autor e Estoque;
 booksRouter.post("/", async (request, response) => {
   try {
-    console.log(request.body);
     const { name, author, description, stock }: Books = request.body;
-    const book = new CreateBookService().execute({
+    const book = await new CreateBookService().execute({
       name,
       author,
       description,
@@ -21,8 +45,9 @@ booksRouter.post("/", async (request, response) => {
     });
     return response.json(book);
   } catch (error) {
-    return response.json(error);
+    return response.status(400).json("There was an error with your request");
   }
 });
+// - Como usuário gostaria de excluir um livro;
 
 export default booksRouter;

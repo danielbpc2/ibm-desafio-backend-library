@@ -1,5 +1,5 @@
-import Books from "../models/Books";
-import { BooksRepository } from "../repositories/BooksRepository";
+import Books from "../../models/Books";
+import { BooksRepository } from "../../repositories/BooksRepository";
 
 export class CreateBookService {
   /**
