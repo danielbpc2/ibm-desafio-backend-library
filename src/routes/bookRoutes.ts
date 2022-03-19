@@ -4,6 +4,7 @@ import { CreateBookService } from "../services/books/CreateBookService";
 import { ListBookService } from "../services/books/ListBooksService";
 import { BookDetailsService } from "../services/books/BookDetailsService";
 import { DeleteBookService } from "../services/books/DeleteBookService";
+import { UpdateBookService } from "../services/books/UpdateBookService";
 
 const booksRouter = Router();
 
@@ -55,8 +56,28 @@ booksRouter.get("/getBookDetails", async (request, response) => {
   }
 });
 
-// TODO: - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
+/**
+ * Requisito:
+ * ! Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
+ * * Faz um update e retorna o livro atualizado
+ */
+booksRouter.patch("/", async (request, response) => {
+  try {
+    const { name, author, description, stock, sbn }: Books = request.body;
 
+    const book = await new UpdateBookService().execute({
+      sbn,
+      name,
+      author,
+      description,
+      stock,
+    });
+
+    return response.json(book);
+  } catch (error) {
+    return response.status(400).json(error?.message);
+  }
+});
 /**
  * Requisito:
  * ! Como usuário gostaria adicionar livros no meu microseviço; Os livros devem conter: SBN, Nome, Breve Descrição e Autor e Estoque;
