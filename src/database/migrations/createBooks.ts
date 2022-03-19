@@ -2,6 +2,7 @@ import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class createBooks1647700260488 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
     await queryRunner.createTable(
       new Table({
         name: "books",
@@ -10,7 +11,9 @@ export class createBooks1647700260488 implements MigrationInterface {
             name: "sbn",
             type: "varchar",
             isPrimary: true,
-            generationStrategy: "uuid",
+            isNullable: false,
+            isUnique: true,
+            length: "13",
           },
           {
             name: "name",
@@ -20,6 +23,7 @@ export class createBooks1647700260488 implements MigrationInterface {
           {
             name: "description",
             type: "varchar",
+            isNullable: false,
           },
           {
             name: "author",
