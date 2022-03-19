@@ -3,7 +3,9 @@ import { BooksRepository } from "../../repositories/BooksRepository";
 
 export class UpdateBookService {
   /**
-   * execute the criation of a Book
+   * if executed finds a book and updates it.
+   * @param book receives a book
+   * @returns updated book
    */
   public async execute(book: Books): Promise<Books | null> {
     const { author, description, name, sbn, stock } = book;
