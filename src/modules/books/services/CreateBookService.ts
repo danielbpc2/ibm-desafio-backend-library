@@ -1,4 +1,4 @@
-import AppError from "src/shared/errors/AppError";
+import AppError from "@errors/AppError";
 import Books from "@modules/books/infra/typeorm/entities/Books";
 import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
 

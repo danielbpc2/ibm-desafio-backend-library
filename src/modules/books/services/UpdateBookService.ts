@@ -1,6 +1,6 @@
 import Books from "@modules/books/infra/typeorm/entities/Books";
 import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
-import AppError from "src/shared/errors/AppError";
+import AppError from "@errors/AppError";
 export class UpdateBookService {
   /**
    * if executed finds a book and updates it.

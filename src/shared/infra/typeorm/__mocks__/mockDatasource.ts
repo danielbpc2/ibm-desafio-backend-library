@@ -7,7 +7,7 @@ export const dataSource = new DataSource({
   port: parseInt(process.env.DB_PORT!, 10),
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  database: process.env.MOCKDB_DATABASE,
   migrationsRun: true,
   migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
   entities: ["./src/modules/books/infra/typeorm/entities/*.ts"],

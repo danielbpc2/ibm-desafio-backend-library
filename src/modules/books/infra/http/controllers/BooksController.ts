@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ListBookService } from "@modules/books/services/ListBooksService";
+import { ListBooksService } from "@modules/books/services/ListBooksService";
 import { BookDetailsService } from "@modules/books/services/BookDetailsService";
 import { DeleteBookService } from "@modules/books/services/DeleteBookService";
 import { CreateBookService } from "@modules/books/services/CreateBookService";
@@ -18,7 +18,7 @@ export default class BookController {
 
     const parsedPage = parseInt(`${page}`, 10);
 
-    const [bookList, maxPages] = await new ListBookService().execute(
+    const [bookList, maxPages] = await new ListBooksService().execute(
       parsedPage
     );
 
