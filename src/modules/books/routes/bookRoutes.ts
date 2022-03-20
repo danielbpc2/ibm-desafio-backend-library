@@ -2,7 +2,7 @@ import { Router } from "express";
 import Books from "../models/Books";
 import { CreateBookService } from "../services/books/CreateBookService";
 import { ListBookService } from "../services/books/ListBooksService";
-import { BookDetailsService } from "../services/books/BookDetailsService";
+import { BookDetailsService } from "../services/BookDetailsService";
 import { DeleteBookService } from "../services/books/DeleteBookService";
 import { UpdateBookService } from "../services/books/UpdateBookService";
 

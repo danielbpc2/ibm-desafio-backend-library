@@ -1,6 +1,6 @@
 import { ILike } from "typeorm";
-import Books from "../../models/Books";
-import { BooksRepository } from "../../repositories/BooksRepository";
+import Books from "../models/Books";
+import { BooksRepository } from "../repositories/BooksRepository";
 
 export class BookDetailsService {
   /**
