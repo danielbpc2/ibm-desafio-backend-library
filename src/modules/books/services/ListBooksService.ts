@@ -1,8 +1,9 @@
 import { MoreThan } from "typeorm";
 import Books from "@modules/books/infra/typeorm/entities/Books";
 import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
+import AppError from "@shared/errors/AppError";
 
-export class ListBookService {
+export class ListBooksService {
   /**
    * if execited returns a list of the books with stock above 0 and the last page number
    * @param page number of the page to be returned
@@ -18,6 +19,10 @@ export class ListBookService {
       take,
       skip,
     });
+
+    if (page > Math.ceil(count / take)) {
+      throw new AppError("This page does not exist", 404);
+    }
 
     return [booklist, Math.ceil(count / take)];
   }
