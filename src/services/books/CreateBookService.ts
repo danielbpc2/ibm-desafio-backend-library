@@ -1,3 +1,4 @@
+import AppError from "../../errors/AppError";
 import Books from "../../models/Books";
 import { BooksRepository } from "../../repositories/BooksRepository";
 
@@ -13,7 +14,7 @@ export class CreateBookService {
     const bookExists = await BooksRepository.findOneBy({ sbn });
 
     if (bookExists) {
-      throw Error("A book with this sbn already exists");
+      throw new AppError("A book with this sbn already exists");
     }
 
     const createdBook = BooksRepository.create(book);
