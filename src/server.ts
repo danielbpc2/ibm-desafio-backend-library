@@ -1,5 +1,6 @@
 require("dotenv").config();
 import express from "express";
+import "express-async-errors";
 import { dataSource } from "./database";
 import routes from "./routes";
 import bodyParser from "body-parser";
