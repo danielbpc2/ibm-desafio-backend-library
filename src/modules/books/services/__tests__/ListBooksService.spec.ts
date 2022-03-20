@@ -1,5 +1,4 @@
 import AppError from "@shared/errors/AppError";
-import Books from "@modules/books/infra/typeorm/entities/Books";
 import { ListBooksService } from "../ListBooksService";
 import { dataSource } from "@shared/infra/typeorm/__mocks__/mockDatasource";
 import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
@@ -53,7 +52,7 @@ afterAll(async () => {
 describe("ListBooksService:", () => {
   describe("execute():", () => {
     it("should return List book with stock > 0", async () => {
-      const [books, maxPages] = await new ListBooksService().execute(1);
+      const [books, _maxPages] = await new ListBooksService().execute(1);
       expect(books.length).toEqual(2);
       books.forEach((book) => {
         expect(book.name).not.toEqual("my book 2");
@@ -61,8 +60,8 @@ describe("ListBooksService:", () => {
     });
 
     it("should return first page if its given a invalid page", async () => {
-      const books = await new ListBooksService().execute(NaN);
-      expect(books.length).toEqual(2);
+      const [books, _maxPages] = await new ListBooksService().execute(NaN);
+      expect(books[0]).toHaveProperty("name", "my book");
     });
   });
 

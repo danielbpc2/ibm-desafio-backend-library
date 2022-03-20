@@ -1,4 +1,3 @@
-import AppError from "@shared/errors/AppError";
 import Books from "@modules/books/infra/typeorm/entities/Books";
 import { DeleteBookService } from "../DeleteBookService";
 import { dataSource } from "@shared/infra/typeorm/__mocks__/mockDatasource";

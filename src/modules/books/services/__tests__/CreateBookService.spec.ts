@@ -36,6 +36,7 @@ describe("CreateBookService:", () => {
     it("should have unique sbn", async () => {
       try {
         await new CreateBookService().execute(mockBook);
+        await new CreateBookService().execute(mockBook);
       } catch (error) {
         expect(error).toBeInstanceOf(AppError);
         expect(error).toHaveProperty("statusCode", 400);
