@@ -1,6 +1,6 @@
-import Books from "../../models/Books";
-import { BooksRepository } from "../../repositories/BooksRepository";
-import AppError from "../../errors/AppError";
+import Books from "@modules/books/infra/typeorm/entities/Books";
+import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
+import AppError from "src/shared/errors/AppError";
 export class UpdateBookService {
   /**
    * if executed finds a book and updates it.

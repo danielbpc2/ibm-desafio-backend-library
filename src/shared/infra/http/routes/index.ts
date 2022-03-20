@@ -1,5 +1,5 @@
 import { Router } from "express";
-import BookRoutes from "./bookRoutes";
+import BookRoutes from "@modules/books/routes/bookRoutes";
 const routes = Router();
 
 // * Book routes

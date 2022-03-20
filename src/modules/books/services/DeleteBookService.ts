@@ -1,5 +1,5 @@
-import Books from "../../models/Books";
-import { BooksRepository } from "../../repositories/BooksRepository";
+import Books from "@modules/books/infra/typeorm/entities/Books";
+import { BooksRepository } from "@modules/books/infra/typeorm/repositories/BooksRepository";
 
 export class DeleteBookService {
   /**
