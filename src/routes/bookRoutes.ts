@@ -13,25 +13,17 @@ const booksRouter = Router();
  * ! Como usuário gostaria de ver a listagem (apenas os nomes) de livros que eu tenho em estoque de forma paginada;
  */
 booksRouter.get("/", async (request, response) => {
-  try {
-    let { page } = request.query;
+  let { page } = request.query;
 
-    const parsedPage = parseInt(`${page}`, 10);
+  const parsedPage = parseInt(`${page}`, 10);
 
-    const [bookList, maxPages] = await new ListBookService().execute(
-      parsedPage
-    );
+  const [bookList, maxPages] = await new ListBookService().execute(parsedPage);
 
-    return response.json({
-      books: bookList,
-      page: parsedPage ? parsedPage : 1,
-      maxPages,
-    });
-  } catch (error) {
-    return response
-      .status(500)
-      .json("There was an error while trying to retrive book list");
-  }
+  return response.json({
+    books: bookList,
+    page: parsedPage ? parsedPage : 1,
+    maxPages,
+  });
 });
 
 /**
@@ -40,20 +32,14 @@ booksRouter.get("/", async (request, response) => {
  * * Retorna os detalhes do livro pelo sbn ou o livro com o nome mais próximo da pesquisa.
  */
 booksRouter.get("/getBookDetails", async (request, response) => {
-  try {
-    const { sbn, name } = request.query;
+  const { sbn, name } = request.query;
 
-    const bookDetails = await new BookDetailsService().execute(
-      `${sbn}`,
-      `${name}`
-    );
+  const bookDetails = await new BookDetailsService().execute(
+    `${sbn}`,
+    `${name}`
+  );
 
-    return response.json(bookDetails);
-  } catch (error) {
-    return response
-      .status(500)
-      .json("There was an error while trying to retrive book details");
-  }
+  return response.json(bookDetails);
 });
 
 /**
@@ -62,21 +48,17 @@ booksRouter.get("/getBookDetails", async (request, response) => {
  * * Faz um update e retorna o livro atualizado
  */
 booksRouter.patch("/", async (request, response) => {
-  try {
-    const { name, author, description, stock, sbn }: Books = request.body;
+  const { name, author, description, stock, sbn }: Books = request.body;
 
-    const book = await new UpdateBookService().execute({
-      sbn,
-      name,
-      author,
-      description,
-      stock,
-    });
+  const book = await new UpdateBookService().execute({
+    sbn,
+    name,
+    author,
+    description,
+    stock,
+  });
 
-    return response.json(book);
-  } catch (error) {
-    return response.status(400).json(error?.message);
-  }
+  return response.json(book);
 });
 
 /**
@@ -85,21 +67,17 @@ booksRouter.patch("/", async (request, response) => {
  * * Ao enviar os dados do livro cria um novo livro
  */
 booksRouter.post("/", async (request, response) => {
-  try {
-    const { sbn, name, author, description, stock }: Books = request.body;
+  const { sbn, name, author, description, stock }: Books = request.body;
 
-    const book = await new CreateBookService().execute({
-      sbn,
-      name,
-      author,
-      description,
-      stock,
-    });
+  const book = await new CreateBookService().execute({
+    sbn,
+    name,
+    author,
+    description,
+    stock,
+  });
 
-    return response.json(book);
-  } catch (error) {
-    return response.status(400).json(error?.message);
-  }
+  return response.json(book);
 });
 
 /**
@@ -107,17 +85,13 @@ booksRouter.post("/", async (request, response) => {
  * * Como usuário gostaria de excluir um livro;
  */
 booksRouter.delete("/", async (request, response) => {
-  try {
-    const { sbn } = request.query;
+  const { sbn } = request.query;
 
-    const deletedBook = await new DeleteBookService().execute(`${sbn}`);
+  const deletedBook = await new DeleteBookService().execute(`${sbn}`);
 
-    return response.json({
-      book: deletedBook,
-      deleted: deletedBook ? true : false,
-    });
-  } catch (error) {
-    return response.json("There was an error while trying to delete a book");
-  }
+  return response.json({
+    book: deletedBook,
+    deleted: deletedBook ? true : false,
+  });
 });
 export default booksRouter;
