@@ -9,5 +9,5 @@ export const dataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   migrations: ["./src/database/migrations/*.ts"],
-  entities: ["./src/models/*.ts"],
+  entities: ["./src/modules/books/models/*.ts"],
 });

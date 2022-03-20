@@ -1,10 +1,10 @@
 import { Router } from "express";
 import Books from "../models/Books";
-import { CreateBookService } from "../services/books/CreateBookService";
-import { ListBookService } from "../services/books/ListBooksService";
-import { BookDetailsService } from "../services/BookDetailsService";
-import { DeleteBookService } from "../services/books/DeleteBookService";
-import { UpdateBookService } from "../services/books/UpdateBookService";
+import { CreateBookService } from "@modules/books/services/CreateBookService";
+import { ListBookService } from "@modules/books/services/ListBooksService";
+import { BookDetailsService } from "@modules/books/services/BookDetailsService";
+import { DeleteBookService } from "@modules/books/services/DeleteBookService";
+import { UpdateBookService } from "@modules/books/services/UpdateBookService";
 
 const booksRouter = Router();
 

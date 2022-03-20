@@ -1,6 +1,6 @@
-import AppError from "../../errors/AppError";
-import Books from "../../models/Books";
-import { BooksRepository } from "../../repositories/BooksRepository";
+import AppError from "@errors/AppError";
+import Books from "@modules/books/models/Books";
+import { BooksRepository } from "@modules/books/repositories/BooksRepository";
 
 export class CreateBookService {
   /**

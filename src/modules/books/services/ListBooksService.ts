@@ -1,6 +1,6 @@
 import { MoreThan } from "typeorm";
-import Books from "../../models/Books";
-import { BooksRepository } from "../../repositories/BooksRepository";
+import Books from "@modules/books/models/Books";
+import { BooksRepository } from "@modules/books/repositories/BooksRepository";
 
 export class ListBookService {
   /**
