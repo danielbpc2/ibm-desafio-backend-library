@@ -1,7 +1,7 @@
 require("dotenv").config();
 import express from "express";
 import "express-async-errors";
-import { dataSource } from "./database";
+import { dataSource } from "../typeorm";
 import routes from "./routes";
 import bodyParser from "body-parser";
 import errorHandlingMiddleware from "./middlewares/globalErrorHandling";

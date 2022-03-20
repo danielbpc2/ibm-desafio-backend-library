@@ -1,5 +1,5 @@
 import { ILike } from "typeorm";
-import Books from "../models/Books";
+import Books from "../infra/typeorm/entities/Books";
 import { BooksRepository } from "../repositories/BooksRepository";
 
 export class BookDetailsService {

@@ -1,5 +1,5 @@
-import AppError from "@errors/AppError";
-import Books from "@modules/books/models/Books";
+import AppError from "src/shared/errors/AppError";
+import Books from "@modules/books/infra/typeorm/entities/Books";
 import { BooksRepository } from "@modules/books/repositories/BooksRepository";
 
 export class CreateBookService {

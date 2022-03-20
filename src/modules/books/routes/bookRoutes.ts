@@ -1,5 +1,5 @@
 import { Router } from "express";
-import Books from "../models/Books";
+import Books from "../infra/typeorm/entities/Books";
 import { CreateBookService } from "@modules/books/services/CreateBookService";
 import { ListBookService } from "@modules/books/services/ListBooksService";
 import { BookDetailsService } from "@modules/books/services/BookDetailsService";
