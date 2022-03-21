@@ -24,9 +24,6 @@ Com as seguintes requisitos funcionais:
 - [Prettier](https://github.com/prettier/prettier)
 - [EditorConfig](https://github.com/editorconfig/editorconfig-vscode)
 
-## 📦 Utilização
-
-
 ## ▶️ Para rodar o projeto:
   *🐋 **sugestão utilizar o docker**: https://hub.docker.com/_/postgres <br />
   **1.** ter o docker instalado e rodar o comando `docker-compose up`<br />
