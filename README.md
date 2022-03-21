@@ -24,6 +24,7 @@ Com as seguintes requisitos funcionais:
 - [Eslint](https://github.com/eslint/eslint)
 - [Prettier](https://github.com/prettier/prettier)
 - [EditorConfig](https://github.com/editorconfig/editorconfig-vscode)
+- [ISBN-Utils](https://github.com/JuanMaRuiz/isbn-util)
 
 ## ▶️ Para rodar o projeto:
 
@@ -32,7 +33,7 @@ Com as seguintes requisitos funcionais:
 **2.** ter o docker instalado e rodar o comando `docker-compose up`<br />
 
 caso não venha a usar o docker<br />
-**1.** criar um arquivo .env usando como base o .env-sample na raiz do projeto<br />
+**1.** criar um arquivo .env usando como base o .env-sample na raiz do projeto, trocar a chave para `DB_HOST=localhost` <br />
 **2.** Dar o comando `yarn` no terminal na pasta do projeto para baixar as dependências<br />
 **3.** Ter o postgres instalado, criar um database chamado `ibm_bookdb`, um usuário `postgres` senha `root`<br />
 **4.** Rodar a aplicação `yarn dev:server`
