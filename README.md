@@ -20,6 +20,11 @@ Com as seguintes requisitos funcionais:
 - Como usuário gostaria atualizar dados de um livro. SBN não pode ser alterado;
 - Como usuário gostaria de excluir um livro;
 
+Requisitos não funcionais:
+- Você deve utilizar o framework Express
+- Deve utilzar algum banco de dados (pode ser banco em memória como H2 ou SQLite, porém fique à vontade em utilizar outro banco);
+- Para teste utilize o Jest
+
 ## 🖥 Tecnologias
 
 - [Typescript](https://github.com/microsoft/TypeScript)
@@ -33,18 +38,18 @@ Com as seguintes requisitos funcionais:
 
 ## ▶️ Para rodar o projeto:
 
-\*🐋 **sugestão utilizar o docker**: https://hub.docker.com/_/postgres <br />
-**1.** criar um arquivo .env usando como base o .env-sample na raiz do projeto<br />
-**2.** ter o docker instalado e rodar o comando `docker-compose up`<br />
+\*🐋 **Sugestão utilizar o docker**: https://hub.docker.com/_/postgres <br />
+**1.** Criar um arquivo .env usando como base o .env-sample na raiz do projeto<br />
+**2.** Ter o docker instalado e rodar o comando `docker-compose up`<br />
 
-caso não venha a usar o docker<br />
-**1.** criar um arquivo .env usando como base o .env-sample na raiz do projeto, trocar a chave para `DB_HOST=localhost` <br />
+Caso não venha a usar o docker<br />
+**1.** Criar um arquivo .env usando como base o .env-sample na raiz do projeto, trocar a chave para `DB_HOST=localhost` <br />
 **2.** Dar o comando `yarn` no terminal na pasta do projeto para baixar as dependências<br />
 **3.** Ter o postgres instalado, criar um database chamado `ibm_bookdb`, um usuário `postgres` senha `root`<br />
 **4.** Rodar a aplicação `yarn dev:server`
 
-caso queira rodar os testes:
-**1.** repita os passos acima para poder rodar a aplicação, menos o passo 4.<br />
+caso queira rodar os testes:<br />
+**1.** Repita os passos acima para poder rodar a aplicação, menos o passo 4.<br />
 **2.** No postgres, criar um database chamado `ibm_mockdb`, um usuário `postgres` senha `root`<br />
 **3.** Rodar os testes `yarn test`
 
