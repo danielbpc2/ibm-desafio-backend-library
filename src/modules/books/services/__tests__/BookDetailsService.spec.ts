@@ -8,9 +8,9 @@ import { BookDetailsService } from "../BookDetailsService";
 jest.mock("@modules/books/infra/typeorm/repositories/BooksRepository");
 
 const mockBook = {
-  sbn: "85-359-0277-9",
+  sbn: "972-662-905-5",
   description: "mock",
-  name: "my book",
+  name: "my special book",
   author: "daniel",
   stock: 1,
 };
@@ -45,7 +45,7 @@ describe("BookDetailsService:", () => {
     });
 
     it("should return the details of a book when searching with something ILike the name", async () => {
-      const book = await new BookDetailsService().execute("", "my b");
+      const book = await new BookDetailsService().execute("", "my speci");
       expect(book).toBeInstanceOf(Books);
       expect(book).toHaveProperty("sbn", mockBook.sbn);
       expect(book).toHaveProperty("name", mockBook.name);

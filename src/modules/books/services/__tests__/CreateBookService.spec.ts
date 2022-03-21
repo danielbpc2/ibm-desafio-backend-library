@@ -12,13 +12,13 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await new DeleteBookService().execute("85-359-0277-2");
+  await new DeleteBookService().execute("85-359-0277-5");
   await dataSource.destroy();
 });
 
 describe("CreateBookService:", () => {
   const mockBook = {
-    sbn: "85-359-0277-2",
+    sbn: "85-359-0277-5",
     description: "mock",
     name: "my book",
     author: "daniel",
@@ -44,6 +44,16 @@ describe("CreateBookService:", () => {
           "message",
           "A book with this sbn already exists"
         );
+      }
+    });
+
+    it("should have a valid sbn", async () => {
+      try {
+        await new CreateBookService().execute({ ...mockBook, sbn: "notvalid" });
+      } catch (error) {
+        expect(error).toBeInstanceOf(AppError);
+        expect(error).toHaveProperty("statusCode", 400);
+        expect(error).toHaveProperty("message", "The SBN must be valid");
       }
     });
   });

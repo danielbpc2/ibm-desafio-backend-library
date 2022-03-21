@@ -7,7 +7,7 @@ import { CreateBookService } from "../CreateBookService";
 jest.mock("@modules/books/infra/typeorm/repositories/BooksRepository");
 
 const mockBook = {
-  sbn: "85-359-0277-1",
+  sbn: "9971-5-0210-0",
   description: "mock",
   name: "my book",
   author: "daniel",

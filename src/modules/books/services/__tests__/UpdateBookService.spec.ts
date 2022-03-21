@@ -9,7 +9,7 @@ import { BooksRepository } from "@modules/books/infra/typeorm/repositories/Books
 jest.mock("@modules/books/infra/typeorm/repositories/BooksRepository");
 
 const mockBook = {
-  sbn: "85-359-0277-3",
+  sbn: "0-943396-04-2",
   description: "mock",
   name: "my book",
   author: "daniel",
@@ -17,7 +17,7 @@ const mockBook = {
 };
 
 const editedMockBook = {
-  sbn: "85-359-0277-3",
+  sbn: "0-943396-04-2",
   name: "my book edited",
   author: "Ricardo was here",
   description: "edited mock",
