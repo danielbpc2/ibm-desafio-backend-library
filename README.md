@@ -5,7 +5,12 @@
 O objetivo do projeto seria criar um microserviço para expor APIs de CRUD de livros<br />
 Entidades do sistema:
 
-- Books
+- Books <br/>
+`sbn: chave primaria, varchar(13), necessária ser um SBN valido!`<br/>
+`name: varchar, não pode ser nulo.`<br/>
+`description: varchar, não pode ser nulo`<br/>
+`author: varchar, não pode ser nulo`<br/>
+`stock: integer, não pode ser nulo`<br/>
 
 Com as seguintes requisitos funcionais:
 
