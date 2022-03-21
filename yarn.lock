@@ -553,6 +553,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@shippack/isbn-verify@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@shippack/isbn-verify/-/isbn-verify-1.5.1.tgz#76264056837a1380b70736e00677b6a61993a83b"
+  integrity sha512-3JgQQ//5iM53oNP1oIUGrMB8bQe0C70T3zzeKRYSPixtoTEPrJhCUfO6o+gQHOBkSv8/LYgP8D8VhuxIEZ0mPw==
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.3.tgz#3802ddd21a50a949b6721ddd72da36e67e7f1b2d"
@@ -2289,6 +2294,11 @@ is-weakref@^1.0.1:
   integrity sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==
   dependencies:
     call-bind "^1.0.2"
+
+isbn-util@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/isbn-util/-/isbn-util-1.1.2.tgz#6f37d275a4ad878b194237eb709ce8d08e2e5fb7"
+  integrity sha512-Dk6ocWU6r3YavRWeLFVfma2yuAXa/+ZVCGBzNjC+EeAjQcCXEE0+QnTx6+A/hAr5RoPtjpDN1ntG6s2DGTXdLA==
 
 isexe@^2.0.0:
   version "2.0.0"

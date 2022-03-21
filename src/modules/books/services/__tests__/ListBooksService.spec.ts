@@ -8,21 +8,21 @@ import { DeleteBookService } from "../DeleteBookService";
 jest.mock("@modules/books/infra/typeorm/repositories/BooksRepository");
 
 const mockBook1 = {
-  sbn: "85-359-0277-5",
+  sbn: "99921-58-10-7",
   description: "mock",
   name: "my book",
   author: "daniel",
   stock: 1,
 };
 const mockBook2 = {
-  sbn: "85-359-0277-6",
+  sbn: "0-684-84328-5",
   description: "mock",
   name: "my book 2",
   author: "daniel",
   stock: 0,
 };
 const mockBook3 = {
-  sbn: "85-359-0277-7",
+  sbn: "0-85131-041-9",
   description: "mock",
   name: "my book 3",
   author: "daniel",
