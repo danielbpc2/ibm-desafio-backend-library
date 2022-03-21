@@ -26,7 +26,8 @@ Com as seguintes requisitos funcionais:
 
 ## ▶️ Para rodar o projeto:
   *🐋 **sugestão utilizar o docker**: https://hub.docker.com/_/postgres <br />
-  **1.** ter o docker instalado e rodar o comando `docker-compose up`<br />
+  **1.** criar um arquivo .env usando como base o .env-sample na raiz do projeto<br />
+  **2.** ter o docker instalado e rodar o comando `docker-compose up`<br />
   
   caso não venha a usar o docker<br />
  **1.** criar um arquivo .env usando como base o .env-sample na raiz do projeto<br />
